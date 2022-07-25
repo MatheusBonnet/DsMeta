@@ -26,15 +26,20 @@ public class Sale {
 	
 	private LocalDate date;
 	
+	private String phone;
+	
 	public Sale() {}
 
-	public Sale(Long id, String sellerName, Integer visited, Integer deals, Double amount, LocalDate date) {
+	public Sale(Long id, String sellerName, Integer visited, Integer deals, Double amount, LocalDate date,
+			String phone) {
+		super();
 		this.id = id;
 		this.sellerName = sellerName;
 		this.visited = visited;
 		this.deals = deals;
 		this.amount = amount;
 		this.date = date;
+		this.phone = phone;
 	}
 
 	public Long getId() {
@@ -83,6 +88,14 @@ public class Sale {
 
 	public void setDate(LocalDate date) {
 		this.date = date;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 }

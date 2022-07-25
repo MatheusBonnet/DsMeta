@@ -21,9 +21,6 @@ public class SmsService {
 
 	@Value("${twilio.phone.from}")
 	private String twilioPhoneFrom;
-
-	@Value("${twilio.phone.to}")
-	private String twilioPhoneTo;
 	
 	@Autowired
 	private SaleRepository repository;
@@ -39,7 +36,7 @@ public class SmsService {
 
 		Twilio.init(twilioSid, twilioKey);
 
-		PhoneNumber to = new PhoneNumber(twilioPhoneTo);
+		PhoneNumber to = new PhoneNumber(sale.getPhone());
 		PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
 
 		Message message = Message.creator(to, from, msg).create();
